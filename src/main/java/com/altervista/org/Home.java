@@ -20,28 +20,30 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
 
-        try {
-            BufferedReader stream = req.getReader();
+        while (true) {
+            try {
+                BufferedReader stream = req.getReader();
 
-            String line = stream.readLine();
-            String result = "";
-            while (line != null){
-                result.concat(line);
-                line = stream.readLine();
+                String line = stream.readLine();
+                String result = "";
+                while (line != null) {
+                    result.concat(line);
+                    line = stream.readLine();
+                }
+                System.out.println(result);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            System.out.println(result);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
-
+/*
         try {
             RequestDispatcher view;
             view = req.getRequestDispatcher("index.jsp");
             view.forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
