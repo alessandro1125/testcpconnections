@@ -20,6 +20,11 @@ public class StartServer extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
 
         ServerSocket welcomeSocket = null;
+        try {
+            welcomeSocket = new ServerSocket(8081);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         assert welcomeSocket != null;
         String clientSentence;
         String capitalizedSentence = "ciao";
