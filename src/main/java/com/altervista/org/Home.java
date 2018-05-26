@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
         name = "HomeServlet",
-        urlPatterns = {"/start_server/"}
+        urlPatterns = {"/"}
 )
 public class Home extends HttpServlet {
 
