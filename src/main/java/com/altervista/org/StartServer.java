@@ -22,22 +22,22 @@ public class StartServer extends HttpServlet {
         ServerSocket welcomeSocket = null;
         assert welcomeSocket != null;
         new Thread(() -> {
-            while (true){
-                String clientSentence;
-                String capitalizedSentence = "ciao";
-                try {
-                    Socket connectionSocket = welcomeSocket.accept();
+            String clientSentence;
+            String capitalizedSentence = "ciao";
+            try {
+                Socket connectionSocket = welcomeSocket.accept();
+                while (true){
                     BufferedReader inFromClient =
                             new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
                     DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
                     clientSentence = inFromClient.readLine();
-                    System.out.println("Received: " + clientSentence);
+                    if (clientSentence != null && clientSentence != "")
+                        System.out.println("Received: " + clientSentence);
                     //capitalizedSentence = clientSentence.toUpperCase() + '\n';
-                    outToClient.writeBytes(capitalizedSentence);
-                    //connectionSocket.close();
-                }catch (Exception e){
-                    e.printStackTrace();
+                    //outToClient.writeBytes(capitalizedSentence);
                 }
+            }catch (Exception e){
+                e.printStackTrace();
             }
         });
 
