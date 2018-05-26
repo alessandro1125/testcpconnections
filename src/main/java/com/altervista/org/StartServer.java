@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 @WebServlet(
-        name = "HomeServlet",
+        name = "Start Servlet",
         urlPatterns = {"/start_server/"}
 )
 public class StartServer extends HttpServlet {
