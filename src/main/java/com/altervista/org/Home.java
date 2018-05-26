@@ -25,7 +25,7 @@ public class Home extends HttpServlet {
 
         try {
             RequestDispatcher view;
-            view = req.getRequestDispatcher("index.jsp");
+            view = req.getRequestDispatcher("index_main.jsp");
             view.forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
