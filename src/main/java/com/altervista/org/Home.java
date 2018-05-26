@@ -20,6 +20,21 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
 
+
+
+
+        try {
+            RequestDispatcher view;
+            view = req.getRequestDispatcher("index.jsp");
+            view.forward(req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+
         while (true) {
             try {
                 BufferedReader stream = req.getReader();
@@ -35,19 +50,5 @@ public class Home extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
-/*
-        try {
-            RequestDispatcher view;
-            view = req.getRequestDispatcher("index.jsp");
-            view.forward(req, resp);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
-        doGet(req, resp);
     }
 }
