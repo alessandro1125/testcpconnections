@@ -40,7 +40,7 @@ public class Home extends HttpServlet {
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            while (/*stream != null &&*/ req.getInputStream() != null) {
+            while (/*stream != null &&*/ resp.getOutputStream() != null) {
                 /*try {
                     String line = stream.readLine();
                     String result = "";
