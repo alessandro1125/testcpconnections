@@ -35,12 +35,13 @@ public class Home extends HttpServlet {
         BufferedReader stream = null;
 
         try {
-            stream = req.getReader();
+            //stream = req.getReader();
+            System.out.println("Starting");
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            while (stream != null && req.getInputStream() != null) {
-                try {
+            while (/*stream != null &&*/ req.getInputStream() != null) {
+                /*try {
                     String line = stream.readLine();
                     String result = "";
                     while (line != null) {
@@ -56,6 +57,13 @@ public class Home extends HttpServlet {
                 try{
                     stream = req.getReader();
                 }catch (IOException e){
+                    e.printStackTrace();
+                }*/
+
+                System.out.println("APP");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
