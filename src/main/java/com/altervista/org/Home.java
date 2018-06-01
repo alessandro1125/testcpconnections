@@ -1,10 +1,12 @@
 package com.altervista.org;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Null;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +36,14 @@ public class Home extends HttpServlet {
 
         BufferedReader stream = null;
 
+        //Get the output stream
+        ServletOutputStream out = null;
+        try {
+            out = resp.getOutputStream();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
         try {
             //stream = req.getReader();
             System.out.println("Starting");
@@ -59,6 +69,15 @@ public class Home extends HttpServlet {
                 }catch (IOException e){
                     e.printStackTrace();
                 }*/
+
+                try {
+                    assert out != null;
+                    out.write("Hello World".getBytes());
+                    out.flush();
+                    out.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 System.out.println("APP");
                 try {
