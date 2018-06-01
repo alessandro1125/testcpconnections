@@ -74,7 +74,6 @@ public class Home extends HttpServlet {
                     assert out != null;
                     out.write("Hello World".getBytes());
                     out.flush();
-                    out.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
