@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 
 @WebServlet(
         name = "HomeServlet",
@@ -29,7 +30,7 @@ public class Home extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         BufferedReader stream = null;
 
@@ -38,7 +39,7 @@ public class Home extends HttpServlet {
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            while (stream != null) {
+            while (stream != null && req.getInputStream() != null) {
                 try {
                     String line = stream.readLine();
                     String result = "";

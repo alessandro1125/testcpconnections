@@ -33,7 +33,7 @@ public class StartServer extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
 
         BufferedReader stream = null;
-
+/*
         try {
             stream = req.getReader();
         }catch (Exception e) {
@@ -59,6 +59,6 @@ public class StartServer extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-        }
+        }*/
     }
 }
